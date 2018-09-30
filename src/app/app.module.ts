@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { environment} from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -17,7 +17,11 @@ import { EditEmployeeComponent } from './components/edit-employee/edit-employee.
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeesService } from './services/employees.service';
+import { AuthService } from "./services/auth.service";
+import { FlashMessagesService } from "angular2-flash-messages";
+import { FlashMessagesModule } from "angular2-flash-messages";
 
 @NgModule({
   declarations: [
@@ -30,17 +34,21 @@ import { AppRoutingModule } from './app-routing.module';
     AddEmployeeComponent,
     EditEmployeeComponent,
     SettingsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase,
     'clientpanel'), 
-  AngularFirestoreModule,
-  AngularFireAuthModule
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FormsModule,
+    FlashMessagesModule
+
   ],
-  providers: [],
+  providers: [EmployeesService, AuthService, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
