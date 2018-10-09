@@ -7,14 +7,15 @@ import { EditEmployeeComponent } from './components/edit-employee/edit-employee.
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthGuard } from "./guards/auth.guard";
 
 const routes: Routes = [
-  {path: '', component: AdminDashboardComponent},
+  {path: '', component: AdminDashboardComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'employee/add', component: AddEmployeeComponent},
-  {path: 'employee/edit', component: EditEmployeeComponent},
-  {path: 'employee/details', component: EmployeeDetailsComponent},
-  {path: 'settings', component: SettingsComponent},
+  {path: 'employee/add', component: AddEmployeeComponent, canActivate:[AuthGuard]},
+  {path: 'employee/edit', component: EditEmployeeComponent, canActivate:[AuthGuard]},
+  {path: 'employee/details', component: EmployeeDetailsComponent, canActivate:[AuthGuard]},
+  {path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 
@@ -23,6 +24,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  declarations: []
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
