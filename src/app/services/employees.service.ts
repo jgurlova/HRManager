@@ -17,7 +17,7 @@ export class EmployeesService {
     ref => ref.orderBy('lastName', 'asc'));
   }
 
-  getEmployee(): Observable<Employee[]> {
+  getEmployees(): Observable<Employee[]> {
     //Get employees with the id
     this.employees = this.employeesCollection.snapshotChanges().pipe(
     map(changes =>{
@@ -31,5 +31,8 @@ export class EmployeesService {
     return this.employees;
   } 
 
+  newEmployee(employee: Employee){
+    this.employeesCollection.add(employee);
+  }  
 
 }
