@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: '', component: AdminDashboardComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'employee/add', component: AddEmployeeComponent, canActivate:[AuthGuard]},
-  {path: 'employee/edit', component: EditEmployeeComponent, canActivate:[AuthGuard]},
-  {path: 'employee/details', component: EmployeeDetailsComponent, canActivate:[AuthGuard]},
+  {path: 'employee/edit/:id', component: EditEmployeeComponent, canActivate:[AuthGuard]},
+  {path: 'employee/details/:id', component: EmployeeDetailsComponent, canActivate:[AuthGuard]},
   {path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];

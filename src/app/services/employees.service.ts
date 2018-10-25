@@ -35,4 +35,25 @@ export class EmployeesService {
     this.employeesCollection.add(employee);
   }  
 
+  getEmployee(id: string): Observable<Employee> {
+    this.employeesDoc = this.afs.doc<Employee>(`employees/${id}`);
+    this.employee = this.employeesDoc.snapshotChanges().pipe(
+      map(action => {
+      if(action.payload.exists === false){
+        return null;
+      }
+      else{
+        const data = action.payload.data() as Employee;
+        data.id = action.payload.id;
+        return data;
+      }
+    }))
+    return this.employee;
+  }
+
+  updateEmployee(employee: Employee){
+    this.employeesDoc = this.afs.doc(`employees/${employee.id}`);
+    this.employeesDoc.update(employee);
+  }
+
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/Forms';
 import { environment} from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -46,7 +46,7 @@ import { FlashMessagesModule } from "angular2-flash-messages";
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
-    FlashMessagesModule
+    FlashMessagesModule.forRoot()
 
   ],
   providers: [EmployeesService, AuthService, FlashMessagesService],

@@ -20,7 +20,7 @@
       <td> {{ employee.email }} </td>
       <td> {{ employee.phone }} </td>
       <td>{{ employee.salary | currency:"USD":"symbol" }}</td>
-      <td><a routerLink="employee/{{ employee.id }}" class="btn btn-secondary btn-sm">
+      <td><a routerLink="employee/details/{{ employee.id }}" class="btn btn-secondary btn-sm">
         <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
     </tr>
   </tbody>
