@@ -34,4 +34,11 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeeService.updateEmployee(this.employee);
   }
 
+  onDeleteClick(){
+    if(confirm('Are you sure?')){
+      this.employeeService.deleteEmployee(this.employee);
+      }
+      this.router.navigate(['/']);
+  }
+
 }

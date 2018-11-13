@@ -56,4 +56,9 @@ export class EmployeesService {
     this.employeesDoc.update(employee);
   }
 
+  deleteEmployee(employee: Employee){
+    this.employeesDoc = this.afs.doc(`employees/${employee.id}`);
+    this.employeesDoc.delete();
+  }
+
 }

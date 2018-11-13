@@ -1,3 +1,141 @@
-<p>
-  edit-employee works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="employee/details/:id" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Employee
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Edit Employee
+  </div>
+  <div class="card-body">
+    <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          name="firstName" 
+          #employeeFirstName="ngModel" 
+          [ngClass]="{'is-invalid':employeeFirstName.errors && employeeFirstName.touched}"
+          [(ngModel)]="employee.firstName" 
+          minlength="2"
+          required
+        >
+        <div [hidden]="!employeeFirstName.errors?.required" class="invalid-feedback">
+          First Name is required
+        </div>
+        <div [hidden]="!employeeFirstName.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters long
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            name="lastName" 
+            #employeeLastName="ngModel" 
+            [ngClass]="{'is-invalid':employeeLastName.errors && employeeLastName.touched}"
+            [(ngModel)]="employee.lastName" 
+            minlength="2"
+            required
+          >
+          <div [hidden]="!employeeFirstName.errors?.required" class="invalid-feedback">
+            Last Name is required
+          </div>
+          <div [hidden]="!employeeFirstName.errors?.minlength" class="invalid-feedback">
+            Must be at least 2 characters long
+          </div> 
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              name="email" 
+              #employeeEmail="ngModel" 
+              [ngClass]="{'is-invalid':employeeEmail.errors && employeeEmail.touched}"
+              [(ngModel)]="employee.email" 
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+              required
+            >
+            <div [hidden]="!employeeEmail.errors?.required" class="invalid-feedback">
+              Email is required
+            </div>
+            <div [hidden]="!employeeEmail.errors?.pattern" class="invalid-feedback">
+              Must be email format
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label for="phone">Phone</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="phone" 
+                #employeePhone="ngModel" 
+                [ngClass]="{'is-invalid':employeePhone.errors && employeePhone.touched}"
+                [(ngModel)]="employee.phone" 
+                minlength="10"
+                required
+              >
+              <div [hidden]="!employeePhone.errors?.required" class="invalid-feedback">
+                Phone is required
+              </div>
+              <div [hidden]="!employeePhone.errors?.pattern" class="invalid-feedback">
+                Must be at least 10 characters
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  name="salary" 
+                  #employeeSalary="ngModel" 
+                  [ngClass]="{'is-invalid':employeeSalary.errors && employeeSalary.touched}"
+                  [(ngModel)]="employee.salary" 
+                  required
+                >
+                <div [hidden]="!employeeSalary.errors?.required" class="invalid-feedback">
+                  Salary is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="retirement">Retirement Contribution</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  name="retirement" 
+                  #employeeSalary="ngModel" 
+                  [ngClass]="{'is-invalid':employeeRetirement.errors && employeeRetirement.touched}"
+                  [(ngModel)]="employee.retirement" 
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="taxes">Tax Withholding</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  name="taxes" 
+                  #employeeSalary="ngModel" 
+                  [ngClass]="{'is-invalid':employeeTaxes.errors && employeeTaxes.touched}"
+                  [(ngModel)]="employee.Taxes" 
+                  required
+                >
+              </div>
+
+              <input type="submit" value="Submit" class="btn btn-primary btn-block">
+
+    </form>
+  </div>
+</div>
