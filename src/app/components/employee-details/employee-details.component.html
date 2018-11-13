@@ -19,7 +19,7 @@
   <div class="card-body">
     <div class="row">
       <div class="cold-md-8 col-sm-6">
-        <h4>Employee ID: {{ employee.id }}</h4>
+        <h4>Employee ID: </h4><h5>{{ employee.id }}</h5>
       </div>
       <div class="cold-md-8 col-sm-6">
         <h3 class="pull-right"> SALARY: {{ employee.salary | currency:"USD":"symbol"}} 
@@ -40,12 +40,17 @@
           </form>
         </div>
       </div>
+      <div>
+
+      </div>
     </div>
 
     <hr>
     <ul class="list-group">
       <li class="list-group-item">Email: {{employee.email }} </li>
       <li class="list-group-item">Phone: {{employee.phone }} </li>
+      <li class="list-group-item">Retirement Contribution: {{employee.retirement | currency:"USD":"symbol"}} </li>
+      <li class="list-group-item">Tax Withholdings: {{employee.taxes | currency:"USD":"symbol"}} </li>
     </ul>
   </div>
 </div>
