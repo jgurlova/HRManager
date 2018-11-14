@@ -108,6 +108,32 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label for="retirement">Retirement Contribution</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  name="retirement" 
+                  #employeeRetirement = "ngModel" 
+                  [ngClass]="{'is-invalid':employeeRetirement.errors && employeeRetirement.touched}"
+                  [(ngModel)]="employee.retirement" 
+                  
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="taxes">Tax Withholding</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  name="taxes" 
+                  #employeeTaxes="ngModel" 
+                  [ngClass]="{'is-invalid':employeeTaxes.errors && employeeTaxes.touched}"
+                  [(ngModel)]="employee.taxes" 
+                  
+                >
+              </div>
+
               <input type="submit" value="Submit" class="btn btn-primary btn-block">
 
     </form>

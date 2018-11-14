@@ -5,4 +5,6 @@ export interface Employee {
     email?: string;
     phone?: string;
     salary?: number;
+    retirement?: number;
+    taxes?: number;
 }

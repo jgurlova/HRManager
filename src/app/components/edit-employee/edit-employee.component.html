@@ -114,7 +114,7 @@
                   type="number" 
                   class="form-control" 
                   name="retirement" 
-                  #employeeSalary="ngModel" 
+                  #employeeRetirement="ngModel" 
                   [ngClass]="{'is-invalid':employeeRetirement.errors && employeeRetirement.touched}"
                   [(ngModel)]="employee.retirement" 
                   required
@@ -127,9 +127,9 @@
                   type="number" 
                   class="form-control" 
                   name="taxes" 
-                  #employeeSalary="ngModel" 
+                  #employeeTaxes="ngModel" 
                   [ngClass]="{'is-invalid':employeeTaxes.errors && employeeTaxes.touched}"
-                  [(ngModel)]="employee.Taxes" 
+                  [(ngModel)]="employee.taxes" 
                   required
                 >
               </div>
