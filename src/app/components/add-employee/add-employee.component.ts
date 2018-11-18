@@ -19,6 +19,7 @@ export class AddEmployeeComponent implements OnInit {
     salary: 0,
     retirement: 0,
     taxes: 0
+    
   }  
 
   @ViewChild('employeeForm') form: any;

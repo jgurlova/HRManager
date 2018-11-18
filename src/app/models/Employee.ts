@@ -7,4 +7,5 @@ export interface Employee {
     salary?: number;
     retirement?: number;
     taxes?: number;
+    
 }

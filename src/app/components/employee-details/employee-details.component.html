@@ -44,13 +44,22 @@
 
       </div>
     </div>
-
+    <div style="display: block">
+      <canvas baseChart
+                  [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"
+                  ></canvas>
+    </div>
     <hr>
     <ul class="list-group">
       <li class="list-group-item">Email: {{employee.email }} </li>
       <li class="list-group-item">Phone: {{employee.phone }} </li>
       <li class="list-group-item">Retirement Contribution: {{employee.retirement | currency:"USD":"symbol"}} </li>
       <li class="list-group-item">Tax Withholdings: {{employee.taxes | currency:"USD":"symbol"}} </li>
+      <li class="list-group-item">Monthly Salary: {{monthlySalary | currency:"USD":"symbol"}} </li>
     </ul>
   </div>
 </div>

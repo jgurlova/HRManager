@@ -13,6 +13,12 @@ export class EmployeeDetailsComponent implements OnInit {
   id: string;
   employee: Employee;
   showSalaryUpdateInput: boolean = false;
+  employee_retirement = 0;
+  public monthlySalary = 0;
+  // Doughnut
+  public doughnutChartLabels:string[] = ['Retirement', 'Taxes', 'Take Home'];
+  public doughnutChartData:number[] = [0, 0, 0];
+  public doughnutChartType:string = 'doughnut';
 
   constructor(
     private employeeService: EmployeesService,
@@ -27,6 +33,8 @@ export class EmployeeDetailsComponent implements OnInit {
     //Get client
     this.employeeService.getEmployee(this.id).subscribe(employee => {
       this.employee = employee;
+      this.doughnutChartData = [employee['retirement'],employee['taxes'],( (employee['salary'] / 12) - employee['retirement'] - employee['taxes'] )]
+      this.monthlySalary = employee['salary'] / 12
     })
   }
 

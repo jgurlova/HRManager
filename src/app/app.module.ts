@@ -5,6 +5,7 @@ import { environment} from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+import { ChartsModule } from 'ng2-charts';
 
 
 import { AppComponent } from './app.component';
@@ -46,7 +47,8 @@ import { FlashMessagesModule } from "angular2-flash-messages";
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    ChartsModule
 
   ],
   providers: [EmployeesService, AuthService, FlashMessagesService],

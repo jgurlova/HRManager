@@ -17,7 +17,7 @@ export class EditEmployeeComponent implements OnInit {
     email: '',
     phone: '',
     salary: 0
-
+    
   }
 
   constructor(
@@ -47,7 +47,7 @@ export class EditEmployeeComponent implements OnInit {
       //Update employee
       this.employeeService.updateEmployee(value);
 
-      this.router.navigate(['/employee/details/'+this.id]);//This is not rerouting correctly
+      this.router.navigate(['/employee/details/'+this.id]);
     }
 
   }
