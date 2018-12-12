@@ -4,6 +4,7 @@
   </div>
 </div>
 
+<div style="overflow-x:auto;">
 <table *ngIf="employees?.length > 0;else noEmployees" class="table table-striped">
   <thead class="thead-inverse">
     <tr>
@@ -25,7 +26,7 @@
     </tr>
   </tbody>
 </table>
-
+</div>
 <ng-template #noEmployees>
   <hr>
   <h5>There are no employees in the system</h5>
